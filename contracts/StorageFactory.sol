@@ -17,7 +17,15 @@ contract StorageFactory {
     ) public {
         /* In order to interact with another contract, 2 things are required:
             1. Address
-            2. ABI 
+            2. ABI - Application Binary Interface
         */
+        SimpleStorage simpleStorage = simpleStorageArray[_simpleStorageIndex];
+        simpleStorage.store(_simpleStorageNumber);
+    }
+
+    function sfGet(uint256 _simpleStorageIndex) public view returns (uint256) {
+        SimpleStorage simpleStorage = simpleStorageArray[_simpleStorageIndex];
+
+        return simpleStorage.getValue();
     }
 }
